@@ -1,0 +1,5 @@
+{
+  "name": "Smart Manufacturing GPA Calculator",
+  "description": "A GPA and CGPA calculator for B.E. Mechanical Engineering (Smart Manufacturing) based on Anna University Regulation 2021.",
+  "requestFramePermissions": []
+}

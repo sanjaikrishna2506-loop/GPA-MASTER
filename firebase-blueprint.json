@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Stores user-specific settings and goals.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "targetCGPA": { "type": "number", "description": "The user's target CGPA for the end of the course." },
+        "displayName": { "type": "string" }
+      },
+      "required": ["uid"]
+    },
+    "SemesterGrades": {
+      "title": "Semester Grades",
+      "description": "Stores grades for a specific semester for a user.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "semester": { "type": "string" },
+        "grades": {
+          "type": "object",
+          "description": "A map of course codes to grades (O, A+, A, B+, B, C, U)."
+        }
+      },
+      "required": ["uid", "semester", "grades"]
+    }
+  },
+  "firestore": {
+    "/userProfiles/{uid}": {
+      "schema": "UserProfile",
+      "description": "User profile document."
+    },
+    "/semesterGrades/{gradeId}": {
+      "schema": "SemesterGrades",
+      "description": "Grades for a specific semester. gradeId is usually uid_semester."
+    }
+  }
+}
